@@ -1,0 +1,820 @@
+0:01
+And as we are starting with a RAG topic today we will have a small intro
+0:06
+and then move on to the databases for GenAi. Our speaker for today's both
+0:11
+session is Maxim and we will start with intro as I said Maxim you're very
+0:16
+welcome to start.
+0:18
+>> Hello very happy to see you all today. I will start from
+0:23
+organizational  topics as well.  Depends on how 
+0:28
+fast we will move. Potentially we will have some some small break 
+0:33
+between sessions.  But let's see. Today mainly we will focus 
+0:42
+exactly on the way how  LLM can utilize external information
+0:50
+ for providing  value  to the users  that basically utilize  some
+0:57
+systems and we will focus  on the rock  from the different
+1:03
+perspective  first our focus  and first Our presentation will be  around
+1:10
+general general rock. Why do we need the  rock?  and  some  more
+1:18
+practical details that potentially will help you  to navigate in this  huge
+1:25
+and complex world  where you can find a lot of the tools  for the different
+1:32
+purpose a lot of the databases but you don't know where to start and maybe 
+1:37
+where and how to progress. So
+1:42
+let's  start maybe a bit from the introduction. So I'm a max  right now
+1:49
+at cllum. I'm global head of cloud platforms and AI director. So I'm
+1:54
+already nine years within cycllum.  a long time ago, I came here as a middle
+2:00
+JavaScript engineer and went through the different stages of promotions and I was
+2:06
+so lucky to have experience with different SDLC
+2:11
+ processes  and stages um that right now I can  jump much deeper not only
+2:20
+in into engineering topics in the DevOps topics, cloud topics and in the product
+2:25
+topics as well.  so from the  start of  chat GPT
+2:32
+era I jumped to the AI direction  as a self-arner  and I was amazed with the
+2:40
+ some of the experience that I  got  within the LLM and right now my main
+2:46
+interest  it's to make AI system as much reliable  as it possible that's
+2:54
+why maybe you can find  some of the topics  that I did  from the
+3:00
+previous academies around the prompt engineering. This is where I started to
+3:05
+ adopting  LLM and tried to make them more reliable
+3:11
+and  today we will go through  like for for this presentation we will go
+3:17
+through  three  first  topics. So we will focus on the definition and
+3:22
+benefits  what we have from the rock  some of the main use cases. So from
+3:28
+the practical life  limitations and we will  cover a bit  what tools you
+3:35
+can use  to speed up this process.  so in general  when we are talking
+3:43
+about  AI adaptation landscape so basically  we have our base model and
+3:52
+we want to  direct that base model in our for example like domain or our use
+3:59
+case or our application.  so we need to start guiding or
+4:05
+providing or maybe tuning  the LLM and you always  go from the simplest way
+4:15
+ of the tune tuning of the LLM to more complex
+4:20
+um is in some of the like articles you can find that even prompt engineering
+4:25
+this is some kind of like tuning of the LLM because you are changing u
+4:30
+potentially like behavior or narrow proving the  direction of the LLM and
+4:35
+normally when you trying to adopt LLM you are starting from that
+4:41
+ the next stage this is where we will focus mainly today  for both of the
+4:47
+sessions  it's retrie augmented  generation approach  this is where you
+4:54
+already have  some pipeline  that helps you to add more  extend and
+5:04
+extend  the knowledge and understanding  of the LLM.
+5:09
+ the next stage  it's u like about the fine-tuning mainly when you already
+5:16
+need to adopt  model  in some some way or like provide some way of the
+5:23
+behavior of the model and for sure you can bring more knowledge to the model.
+5:28
+And the last one  the the biggest one where you have a combination of rug and
+5:33
+basically fine-tuning and rugg  for us  the main approach when we need to 
+5:41
+to have like some fresh data or our proprietary data  because all of the
+5:47
+LLMs have cut off date  like with the tool use  they can get access to the
+5:53
+more fresh  data from the web  but Sometimes
+5:59
+ it's  better and easier to provide our own data or especially if it's like
+6:04
+proprietary and closed data that  you have access only you have access and
+6:10
+they are not publicly  and  it's one of the like most 
+6:16
+effective and cost effective way  basically to  to let's say fine-tune
+6:24
+ the model And  if we are starting from what
+6:30
+exactly is a rock.  so this is the pattern that  help us to  add
+6:36
+additional knowledge  to our model like in a in a simple way. We have this
+6:43
+like basic rock pipeline  where we  have like first stage where we edit 
+6:50
+our knowledge and  vectorize to some of the  vector DB  and then  when
+6:59
+our user use our system together with  LLM
+7:05
+basically u first  request is going to the 
+7:10
+vector database It's doing like some similarity search choosing  few of the
+7:18
+ chunks or like documents from  that vector DB based on how many  we  we
+7:26
+set up  and then LLM  preparing the final response to our user.
+7:36
+um why it matters  I I already like partially  explained but in addition
+7:44
+ it's quite  quite often if you want to have like better accuracy in the
+7:50
+responses because  with the usage  of  of the rock approach you can 
+7:57
+put like exact data  for the different topic that you want to utilize within
+8:02
+your system when when user interact with that.  it's  quite adaptable because
+8:11
+you can  quite fast change or update or add new knowledge  to  to that
+8:20
+rag database much more cost effective.  and
+8:26
+ it's   in addition it's increase efficiency especially  when you
+8:36
+need to provide like big amount of your like propriatory let's say data or like
+8:42
+knowledge because  for sure with the  current size of the context window 
+8:49
+quite often  you can feed  many huge portion of the information  to the LLM
+8:56
+like with all of the knowledge  that you  want to  utilize  as a part
+9:03
+of the output than when LLM is working on  that data.  but a lot of the
+9:11
+research is  showing that  bigger context windows that you utilized or
+9:17
+like bigger prompt  you you provided to the LLM  you are getting much worse
+9:24
+ result because  LLM quite often missing the exact like needed
+9:30
+information in the middle and in addition  you're just providing
+9:37
+some um noise together with that data like some of the words or information
+9:44
+that's  even not connected to your  basically use case of the database of
+9:50
+the communication with LLM. Um
+9:57
+when we are going to deep dive  so in the rock pipeline in general we have two
+10:03
+main stages  but like when we go a bit  to the details
+10:09
+ quite often and especially this information is  missing when you when
+10:14
+you're reading about the  like rock pipeline. It's data preparation for that
+10:20
+ rock pipeline.  because mainly it's focus on like the way of the chunking 
+10:26
+what the database  you can use and how you put the data  but it's  quite
+10:32
+important to start from the preparation of your data  because I've mentioned
+10:38
+ for example when we provide a huge amount of the data  to the LLM one of
+10:45
+the big problem  that together with the data we are providing like water or
+10:51
+noise  with  that's  just can navigate
+10:58
+LM  when it use  that like prompt information or text  in the wrong
+11:05
+direction.  so that's why quite often preparation  of the of your data  is
+11:11
+quite important  step as well.  then you have  the step where you like
+11:18
+pre-processing of the data  like  making like chunking  process because
+11:28
+ you can you cannot just  put all your 100 page  documents  to to the
+11:34
+vector database because it will be huge and then LLM basically will get  all
+11:39
+of that 100page  documents  as  as a prompt from the  from the
+11:46
+vector database.  so we we have like different approaches  how to split the
+11:51
+information that come with the  with the documents and when we are talking
+11:58
+about the documents um the the information  that's coming as a input
+12:05
+can be like in many different formats.  because we we we are focusing mainly
+12:12
+on the text format but it can be audio, it can be video,  it can be like
+12:18
+images  and different types like even  JavaScript or Python um code bases.
+12:28
+ then we  after after the step when we  split our data to the smaller
+12:36
+pieces  we um converting that smaller pieces to the numeric value  and then
+12:46
+that numeric value  basically inest to the  vector database and we have a
+12:52
+step of the retrieval  it's when already Our user of our
+12:59
+system um basically make the request  and our
+13:06
+system based on that request making the similarity search from the vector
+13:10
+database  and based on the results of that similarity search um it's choosing
+13:18
+like top key chunks  like normally  you are setting that  it's between
+13:25
+like five to 10 top results that you are grabbing from that  vector database
+13:30
+and then LLM decide  what part of the information from the chunk it should
+13:35
+pick up  to fulfill the  the intent of the request of the user and provide
+13:42
+the output. Um so chunking and approach to the
+13:51
+chunking is  quite important part  of this all of the rock  system
+13:59
+ because  like context window of the LLM LLM it's
+14:07
+limited  for most of the LLMs right now for sure we have  quite a huge one
+14:14
+even with within the last Gemini versions I mentioning that  it can 
+14:20
+the context window  can grows up grow up to 2 million  tokens.  but 
+14:28
+still  the problem with  missing information in the middle  still 
+14:35
+persist  with  huge  with huge  context that you are
+14:42
+providing  to the model to the models.  even right now the situation is
+14:48
+improving and  mainly labs are working quite heavily  to improve the
+14:56
+retrieval and finding and processing of the whole of the information that you
+15:00
+provide into the LLM.  but still this is the problem of reliability so to say
+15:07
+and  within the chunks   you have like challenges  to get the proper
+15:13
+balance  and if you provide like too large  chunks. If you if you split
+15:21
+your document  in a two large pieces  then you will have as a result like
+15:28
+not the best retrieval  or a lot of the noise or water  that you're
+15:34
+providing as a part of the request the LLM or if you putting it's too small 
+15:41
+then  you are losing basically the main context  of  of that
+15:48
+information  because it it can be  splitted
+15:53
+in the different parts. It's and it can be the case that  based on the
+15:58
+similarity  search you will not get the full context  of the information
+16:04
+and LLM can provide not reliable response.
+16:15
+Um here just representation of like  three let's say base and main 
+16:21
+chunking strategies.  so fixed size, semantic, recursive.  but for sure you
+16:28
+can find  a lot of different approaches in terms of  chunking. 
+16:34
+so fixed sized  it's when we  split um split our information basically in in
+16:42
+a fixed size like for example 512  tokens and we  we having like
+16:50
+overlap and overlap  basically  help us  to to potentially preserve some
+16:57
+context  from the previous chunk  and it help us  to increase  the
+17:05
+potential quality of the chunks  that we will have. It is the simp simplest 
+17:12
+approach  and for sure it has each each of the
+17:17
+almost each of the approach or I would say like each approach  has  some
+17:24
+ cons. Um and for for the for this approach this is the  the problem that
+17:32
+ if you always have a standard size  it can be the case  that your chunk
+17:38
+will be break  in the meat of the sentence or  will not have  again
+17:44
+still the main  context that you need to preserve for this chunk and as a
+17:49
+result  the quality of the retrieval stage  will be much lower
+17:58
+um the semantic one here quite often some ML system utilized  and it's
+18:05
+trying to split  all of your information by the meaning  and it has
+18:12
+ much higher like accuracy  and  in most cases  much higher  quality
+18:20
+of the retrieval stage because  we are preserving in most cases like context 
+18:26
+that is needed to be in that chunk.  and when we are doing the similarity
+18:31
+search and  top results LLM is getting it's it's getting the proper context for
+18:38
+all of the chunk chunks that we picked up.
+18:42
+Um the  the problem  for sure it's like slower and more expensive in terms
+18:49
+of like  compute  and depends on the amount of the data that we have.  but
+18:56
+in general the situation in this direction  with the more compute and
+19:01
+ slower um is getting better from the year to
+19:05
+year.  and later on when we will have the next session I I will give you 
+19:12
+some perspective on how fast  things  can can be changed  with all of
+19:19
+that tools that we utilizing right now for the agentic system  and  in in
+19:24
+this  ecosystem in general  recursive approach it's still 
+19:31
+mainly like coding coding approach without the utilization any of ML or AI
+19:37
+system.  it's  splitting of the information by separators.  with this
+19:43
+approach  you basically split we we're chunking
+19:49
+ based on the structure of our document.  so we can identify the
+19:54
+paragraphs.  we can identify  the boundaries of the document.  and like
+20:02
+for sure it's a bit more complex  than fixed sized and  still we  have that
+20:10
+ problem with the context because  paragraphs  still  do not represent
+20:16
+the full meaning  of your text or your information
+20:24
+and this is how  that three different approaches  looks like. So when we
+20:29
+have the fixed size so we have  two close to equal chunks and we have
+20:36
+overlap  of the  of the parts of the sentence  that
+20:42
+we  have  quite quite often  in our chunks
+20:49
+when we have the recursive. So recursive  just splitted our text  based on
+20:56
+the sentences and  semantic  it's more focused what the meaning we have 
+21:04
+in each of the part  of our text that we provided. Um right right now  like
+21:11
+for the last time um a lot of the new approaches evolve in terms of 
+21:18
+chunking.  you can  tr for sure hear  about like aentic chunking  where
+21:26
+we utilizing the LLM and LLM then  provide  to us more meaningful 
+21:33
+approach  to this splitting  on the chunks our information
+21:40
+um some embedding  chunks when we utilize like exact embedding model and
+21:47
+ based on the  on the meaning  of the text. It help us  to  split the
+21:55
+information  better as well.  but they are coming with 
+22:01
+additional more extensive  compute cost time  and still 
+22:10
+we don't have like 100%age reliable system that  is the best approach for
+22:19
+the splitting chunking or like embedding of the information.
+22:24
+ so you don't need to implement like all of that  that that that we
+22:30
+mentioned like approaches to the chunks.  so some of the top libraries 
+22:36
+that's already  fully implemented  at least like basic approaches to the
+22:42
+chunking. So basically lank chain  has  has all of  the basic approaches
+22:50
+not only what what I showed   earlier in addition  then they have 
+22:57
+more complex  chunking  approaches.  so it's a quite known  library like
+23:07
+basically application framework  that helping to build the agentic workflows
+23:14
+ and in under the hood it has  a lot of  additional connectors side
+23:21
+libraries  that's  helping us  to build that agentic  system and llama
+23:29
+index  from the start it's mostly was focused on the rack specific pipelines.
+23:34
+ it has quite good performance. It's data centric  and it's just have a bit
+23:42
+diff different approach.  how they implement this  chankin
+23:47
+ strategy but  you can  find even  the same chunk chunking strategy
+23:53
+implementation in both libraries. So you can  look there, try them  and most
+24:01
+probably  you will  get quite good results from  testing different chunk
+24:08
+approaches for exact your  cases. Um in terms of where mainly um rock 
+24:18
+is using  for sure we can we can talk about like from the perspective of
+24:23
+general systems and from the perspective of the use cases when we are talking
+24:28
+about perspective from the use cases. So custom support job search detection and
+24:34
+you name it.  where we  have  quite often updated  system  updated
+24:42
+ information with quite often updated system and mainly that  system like
+24:48
+proprietary not  fully publicly available especially but when we are
+24:53
+talking about exact systems where it's mainly utilized it's like for the AI
+24:58
+chat bots  like for example  if you have some support chat bots you are
+25:04
+putting  information as a  to to the rug
+25:10
+um like Q&A information or some support documents for your clients.  search
+25:17
+and discovery. So combination of the keyword and vector search for better
+25:23
+meaning  of your searches.  different copilots.
+25:29
+ as an example  it can be even how  many of
+25:36
+um current  systems  like for example when we are talking about like
+25:40
+cursor  or other  they basically use rack for the index
+25:47
+indexation of  the codebase and much faster than  finding the exact places
+25:54
+ in your um in your codebase.  for coding and helping to you. And 
+26:03
+when we need the long context reasoning  it's  quite often  utilized 
+26:12
+because again  the quality  of LLM outputs  is going down  with the
+26:22
+amount of the data that you feed  as a part of the request. So splitting and
+26:27
+finding the exact parts of the information  that you are going to
+26:31
+provide is much better approach. Um so in terms of like common challenges
+26:40
+still chunking and  context window um as we as as I mentioned about the 
+26:48
+problem with the chunking like  if you providing quite large  chunks  then
+26:55
+then it mean that that's quite large chunk then you fit to the model. So we
+27:00
+have  the problem with the  additional not needed information in in
+27:06
+exact request.  and then we have like retrieval quality. So it's based on the
+27:16
+ it based on the exact system  that you that you utilize. I mean like vector
+27:22
+database or like approach to the data and  latency and cost.  so for sure
+27:32
+if we add to any system  that we are developing if we add some additional
+27:37
+layer  way where you need to retrieve data or like  make  some filtering
+27:45
+it's it's coming with the cost of latency.
+27:51
+ some dos and don'ts  for the rock system. So  quite often you always 
+27:58
+quite often  it's better to start from the  simple  approach even like from
+28:04
+the simple base. Later on we will  go a bit deeper in that  use the meta
+28:10
+data filtering  in in addition to the chunks.  mo most of the system 
+28:17
+provide possibility to add  additional information and metadata like for
+28:23
+example  some category topic  that's  then
+28:29
+can be the part of your like filtering mechanism
+28:33
+ combining the vector and keyword search so hybrid approach and about that
+28:38
+we will talk  in our next session  monitor the retrieval quality.  in
+28:46
+addition to  to our like ingestion and our test  you we should  prepare 
+28:54
+some pipeline that that will double check the quality  of our retrieval
+28:59
+system um evaluate with the domain specific
+29:05
+question. So basically evaluation on  that that exact  system that we are
+29:11
+trying to build  to build like more reliable system not rely solely on the
+29:17
+vector search. So in addition  you still have  like your standard
+29:23
+searches like keyword and we will discuss about  some of the other
+29:27
+approaches that  providing  much better results  when they work
+29:34
+together  as a hybrid approach and  rear ranking approach as well. 
+29:42
+one of the biggest problem within the rock  this is the security and access
+29:47
+ control  so it's quite complex  to implement this  sometimes but
+29:54
+already some of the systems exist and  we can just utilize them overload of the
+30:02
+LM context  so working on the balance of your chunks  it shouldn't be quite
+30:08
+big and for sure shouldn't be  quite small because  based on that you your
+30:14
+user user of your system  will get the result that it expected.
+30:20
+ continuous update and  do not skip evaluation framework. 
+30:28
+and  here not the three main chunking strategies  but  the systems 
+30:34
+that's  or like libraries  that you can utilize like for the scenarios of
+30:40
+learning  the main suggestion is like lang chain because you can find a lot of
+30:46
+the videos in the YouTube  it's quite extensive community  around the lang
+30:52
+chain and learning  of the lang chain and that possibilities.  so basically
+30:57
+you can utilize  chroma potentially sent sentence transformers or llama and
+31:04
+ some of the like key reasons  it's  you can like learn fundamentals
+31:10
+and from the perspective or of risk-free  like that stack that  I provided
+31:16
+for the for the learning it's like fully open source and you can run just on your
+31:21
+laptop but for sure you can  if you do not use any data that's   shouldn't
+31:29
+be sent to the  to the  models like chat GPT and stuff like that you can for
+31:35
+sure utilize open AI or like Gemini embeddings  for for the easier
+31:40
+approach and like as a MVP  stage  quite often  we needed  just to
+31:48
+change potentially like horma  and add  a bit another embeddings
+31:55
+And for the more enterprise systems, um it can be the case that L chain is not
+32:02
+enough because it's quite good with the  agentic workflows  but has the
+32:08
+problem with some  agentic collaborative  systems. um and
+32:14
+Pineacon and again like OpenAI and Gemini embeddings are one of the top 
+32:21
+right now in terms of  quality default configuration.
+32:28
+So  as a start for 80 percentage of your cases  chunk size  if if you
+32:37
+are using like fixed  chunking approach so chunk size 512  tokens is
+32:43
+enough and golden middle  for sure based on  your research  you can
+32:51
+identify different size of the chunks that working for your  cases better.
+32:56
+ 15 percentage  of the chunk overlap  top k retrieval I I would say like 35
+33:05
+sometimes 10  and embedding dimensions  between 700 and 1500s  should be
+33:14
+enough  this data mainly on the research of the Nvidia  and it's kind
+33:21
+of like  golden middle  middle data and where you start when you are
+33:27
+building your chunk  your rock systems  but  then within the evaluation and
+33:34
+testing you can find your exact  the best size for the chunks and for your
+33:42
+bra system.  just few  takeaways  so rock this
+33:51
+is  the system that helping us  to provide to the LLM external knowledge at
+33:59
+the query time.  chunking is quite critical. So I will not repeat about the
+34:04
+exact numbers.  hybrid search is quite often better than like only vector only
+34:12
+search.  start always simple not only  for the learning  when you're
+34:19
+starting prototyping all development  you can start from simpler  systems
+34:26
+not  utilizing from the start the enterprisegrade
+34:30
+ databases about what we will talk  later today and  quite important part
+34:36
+it's evaluation of your rock pipeline not only like building but system that
+34:43
+will help you  to make the evaluation of the quality of your pipeline  is
+34:49
+quite important.  time for the questions
+34:55
+>> to be honest we already have three questions.
+34:58
+>> So first one yeah I believe we have already answered it but anyway how do we
+35:03
+decide the chunk size for documents?
+35:07
+>>  how do we decide chunk size for document?
+35:11
+ you're starting basically from  that chunk size  that I provided 
+35:17
+when we have like 512  tokens  and with the sliding window
+35:24
+ of  15 percentage and this is where you are starting and then based  on
+35:31
+your like father experiments quite often when we are talking about like all  AI
+35:38
+or like ML development system.  you always have part as a research and then
+35:45
+you  based on the results that you are getting you are play you are playing
+35:50
+with the  with the numbers. So based on what
+35:56
+you get and what you reviewed or maybe you already built the
+36:01
+ evaluation pipeline based on the numbers from the evaluation  pipeline
+36:06
+ you can  then just change your parameters and see  if you are getting
+36:13
+better results and then based on that researches
+36:19
+ based on that evaluations  you can get  the best number in your case in
+36:25
+terms of  what is the size and what is the approach to the chunks should be.
+36:31
+>> Thank you Maxim. We have other question from Tani. She said that she find find
+36:37
+that LLM struggle with analyzing survey data. She had started putting the
+36:41
+documents as PDF and found that it works better. So the questions are which
+36:47
+chunking strategy would an LLM use for survey in PDF format versus CSV and
+36:54
+which do you recommend?
+36:56
+>>  we will talk about this  in our next session.
+37:00
+>> Okay.
+37:00
+>> So keep that question for the next session in case we will not answer.
+37:05
+>>  got it. And the next question is rock is just quering additional info from the
+37:11
+internet and puts it in the context window of your model before providing
+37:16
+the answer. Is it right?
+37:18
+>>  almost except of internet.  this is our like separate database  where we
+37:26
+are storing our data.  so this is like the the main pipeline. But for sure we
+37:32
+can say that this approach that's  going to the internet and getting
+37:39
+additional data this is rugg system as well like rack  system because we
+37:46
+augmenting additional information to our LLM  but the base  when we are
+37:52
+talking about the rack system it's mainly that we have some  separate
+37:58
+place where we storing some information that we want  our
+38:04
+system to utilize as a part of the  of the answer of our LLM.
+38:16
+>> Okay, thank you. And the last one, can I put rock to my newly developed GPT and
+38:23
+it will be very online and up to date? Is it it
+38:29
+>> my newly developed GPT?
+38:32
+>> Yep.
+38:35
+>>  maybe a person can unmute and just say a few words. What does it mean like
+38:40
+newly developed GPT?  because 
+38:44
+>> yeah so it's it's my question. So I just want to understand do I get it right
+38:50
+about rugs? So if I have some LLM whatever GPT or whatever
+38:55
+>> okay
+38:56
+>> and I want I don't want to retrain it. I just want a new information like from
+39:02
+the new database. So it means that I can add this new shiny layer like rug as I
+39:10
+understand it's like chroma or whatever
+39:13
+>> and it will query the data from this chroma before
+39:17
+>> into the context window and just  basically
+39:21
+>> without retraining I will get all the all the information.
+39:26
+>> Yes.
+39:27
+>> Nice. then then then then it's it's fully correct  in in a simple 
+39:33
+understanding um maybe maybe I just
+39:39
+>> excuse me may I clarify one point
+39:43
+>> yeah sure
+39:44
+>> so so I believe the question was asked by
+39:48
+Vasili soil used like you're  I think you are oversimplifying it so in the
+39:52
+first place you you have to get your data into chroma so you have to get your
+39:58
+data  split it into chunks, embed it, put it into Chroma and then yes adding
+40:06
+ Chroma and some rag library on top of your GPT will work.  but you will you
+40:13
+will get only your data you will not get all the new data available on the
+40:18
+internet. For that you would need to integrate with some other tools like
+40:21
+internet search.
+40:23
+>> Yeah. Yeah. Yeah. I I I got it. Yeah. Thank you.
+40:29
+Okay, thank you so much for your questions. Maybe you have other or we
+40:34
+can move on to the next part of the session.
+40:37
+>> I had one question which is about the beginning part. It's just above my last
+40:41
+message. Sorry cuz it was at the beginning he mentioned
+40:46
+that rag injects into the prompt but did he mean the model instead because that
+40:50
+was confusing me?
+40:53
+>>  it's in it in the chat. Um
+40:58
+okay let's go back
+41:04
+ when we have the user query just  to to reiterate  first step  in most
+41:12
+truck systems where we  based on that query  our system find out the top 
+41:20
+parts  of  our data that we put to that  database. is like five 
+41:28
+potential pieces of the information and then together with the prompt and that
+41:34
+information our  our system making the request to
+41:40
+the LLM and then LLM together with that information that we provided from the
+41:45
+vector database and the prompted  like user query
+41:51
+ provide the answer  to the user. Okay, got it. So, this what happens on
+41:57
+the back end because on the front end I wouldn't see that.
+42:02
+>> When I think of prompts as someone who is probably nontechnical, I just think
+42:05
+of whatever I've entered into the chat box
+42:08
+like  for me just like prompt that this is anything that we are providing
+42:14
+ to to the LLM all of the information.  but yes I understand
+42:22
+ like  just to show as a simple example of the rack system as well. So
+42:32
+ when we create  some projects for example in the chat GPT  the project
+42:38
+files that we are adding basically that projects then our rack
+42:44
+system  because  chat GPT just split that information to the chunks  and
+42:51
+then utilize that information when we are asking  questions  in our chat
+43:01
+is the simple representation of rack system and you can find  all of that
+43:07
+like GPTs  until you are providing the  expected like behavior or instruction
+43:15
+when you just provide the  the files that you want GPS to utilize it will be
+43:21
+in addition rack system. You know, pretty
